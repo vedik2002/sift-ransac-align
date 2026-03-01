@@ -1,8 +1,5 @@
 # Automatic Feature Matching Across Images
 
-**Course:** COMS4732W — Computer Vision 2  
-**Assignment:** Homework 2
-
 ---
 
 ## Overview
@@ -61,7 +58,7 @@ A low NNDR means the best match is significantly better than the second-best, in
 
 | Image 1 (test1) | Image 2 (test2) |
 |---|---|
-| ![test1](images/test1.jpg) | ![test2](images/test2.jpg) |
+| ![test1](images/test1.jpeg) | ![test2](images/test2.jpeg) |
 
 ---
 
@@ -102,52 +99,6 @@ Each row shows: the query feature patch from Image 1 | its 1st nearest neighbor 
 **Option B — Color-Coded Matches:** Each matched pair shares a color across both images, with a numbered index for reference.
 
 ![Color Coded Matches](output/scene1/6_matches_colored.png)
-
----
-
-## Sample Results — Scene 2
-
-### Input Image Pair
-
-| Image 1 (test_two_one) | Image 2 (test_two_two) |
-|---|---|
-| ![test_two_one](images/test_two_one.jpg) | ![test_two_two](images/test_two_two.jpg) |
-
----
-
-### Step 1 — Harris Corners Detected
-
-![Harris Corners](output/scene2/1_corners_detected.png)
-
----
-
-### Step 2 — After Non-Maximal Suppression
-
-![After NMS](output/scene2/2_corners_nms.png)
-
----
-
-### Step 3 — NNDR Histogram
-
-![NNDR Histogram](output/scene2/3_nndr_histogram.png)
-
----
-
-### Step 4 — Top 5 Best Matches (1NN vs 2NN)
-
-![Top 5 Matches](output/scene2/4_top_matches.png)
-
----
-
-### Step 5 — Match Visualization
-
-**Option A — Line Connections:**
-
-![Line Matches](output/scene2/5_matches_lines.png)
-
-**Option B — Color-Coded Matches:**
-
-![Color Coded Matches](output/scene2/6_matches_colored.png)
 
 ---
 
