@@ -58,7 +58,7 @@ A low NNDR means the best match is significantly better than the second-best, in
 
 ### Input Image Pair
 > *(Place your two input images side by side here)*
-> Example: `scene1/img1.jpg` and `scene1/img2.jpg`
+> Example: `images/test1.jpeg` and `scene1/img2.jpg`
 
 ---
 
@@ -122,7 +122,7 @@ pip install opencv-python numpy scikit-image matplotlib
 ## Usage
 
 ```bash
-python solution.py
+python run.py
 ```
 
 Output images for each processing step are saved to the respective scene folder (`scene1/`, `scene2/`). Open `index.html` in a browser to view the full results report.
