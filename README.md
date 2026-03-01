@@ -1,6 +1,7 @@
 # Automatic Feature Matching Across Images
 
-
+**Course:** COMS4732W — Computer Vision 2  
+**Assignment:** Homework 2
 
 ---
 
@@ -54,39 +55,41 @@ A low NNDR means the best match is significantly better than the second-best, in
 
 ---
 
-## Sample Results (Scene 1)
+## Sample Results — Scene 1
 
 ### Input Image Pair
-> *(Place your two input images side by side here)*
-> Example: `images/test1.jpeg` and `scene1/img2.jpg`
+
+| Image 1 (test1) | Image 2 (test2) |
+|---|---|
+| ![test1](images/test1.jpg) | ![test2](images/test2.jpg) |
 
 ---
 
 ### Step 1 — Harris Corners Detected
 Red dots mark all detected corners before suppression.
 
-![Harris Corners](scene1/1_corners_detected.png)
+![Harris Corners](output/scene1/1_corners_detected.png)
 
 ---
 
 ### Step 2 — After Non-Maximal Suppression
 Only the most salient, locally-maximal corners are retained.
 
-![After NMS](scene1/2_corners_nms.png)
+![After NMS](output/scene1/2_corners_nms.png)
 
 ---
 
 ### Step 3 — NNDR Histogram
 The red dashed line marks the NNDR threshold of **0.5**. Features to the left are accepted as valid matches; features to the right are rejected as ambiguous.
 
-![NNDR Histogram](scene1/3_nndr_histogram.png)
+![NNDR Histogram](output/scene1/3_nndr_histogram.png)
 
 ---
 
 ### Step 4 — Top 5 Best Matches (1NN vs 2NN)
 Each row shows: the query feature patch from Image 1 | its 1st nearest neighbor in Image 2 | its 2nd nearest neighbor in Image 2. Lower NNDR = more distinctive match.
 
-![Top 5 Matches](scene1/4_top_matches.png)
+![Top 5 Matches](output/scene1/4_top_matches.png)
 
 ---
 
@@ -94,11 +97,57 @@ Each row shows: the query feature patch from Image 1 | its 1st nearest neighbor 
 
 **Option A — Line Connections:** Green lines connect matched features. Red dots mark unmatched (ambiguous) features.
 
-![Line Matches](scene1/5_matches_lines.png)
+![Line Matches](output/scene1/5_matches_lines.png)
 
 **Option B — Color-Coded Matches:** Each matched pair shares a color across both images, with a numbered index for reference.
 
-![Color Coded Matches](scene1/6_matches_colored.png)
+![Color Coded Matches](output/scene1/6_matches_colored.png)
+
+---
+
+## Sample Results — Scene 2
+
+### Input Image Pair
+
+| Image 1 (test_two_one) | Image 2 (test_two_two) |
+|---|---|
+| ![test_two_one](images/test_two_one.jpg) | ![test_two_two](images/test_two_two.jpg) |
+
+---
+
+### Step 1 — Harris Corners Detected
+
+![Harris Corners](output/scene2/1_corners_detected.png)
+
+---
+
+### Step 2 — After Non-Maximal Suppression
+
+![After NMS](output/scene2/2_corners_nms.png)
+
+---
+
+### Step 3 — NNDR Histogram
+
+![NNDR Histogram](output/scene2/3_nndr_histogram.png)
+
+---
+
+### Step 4 — Top 5 Best Matches (1NN vs 2NN)
+
+![Top 5 Matches](output/scene2/4_top_matches.png)
+
+---
+
+### Step 5 — Match Visualization
+
+**Option A — Line Connections:**
+
+![Line Matches](output/scene2/5_matches_lines.png)
+
+**Option B — Color-Coded Matches:**
+
+![Color Coded Matches](output/scene2/6_matches_colored.png)
 
 ---
 
@@ -117,14 +166,45 @@ Each row shows: the query feature patch from Image 1 | its 1st nearest neighbor 
 pip install opencv-python numpy scikit-image matplotlib
 ```
 
+or
+
+```bash
+pip install -r requirement.txt
+```
+
 ---
 
 ## Usage
 
 ```bash
-python run.py
+python code/solution.py
 ```
 
-Output images for each processing step are saved to the respective scene folder (`scene1/`, `scene2/`). Open `index.html` in a browser to view the full results report.
+Output images for each processing step are saved to `output/scene1/` and `output/scene2/`.
 
 ---
+
+## Project Structure
+
+```
+.
+├── images/
+│   ├── test1.jpg
+│   ├── test2.jpg
+│   ├── test_two_one.jpg
+│   └── test_two_two.jpg
+├── output/
+│   ├── scene1/
+│   │   ├── 1_corners_detected.png
+│   │   ├── 2_corners_nms.png
+│   │   ├── 3_nndr_histogram.png
+│   │   ├── 4_top_matches.png
+│   │   ├── 5_matches_lines.png
+│   │   └── 6_matches_colored.png
+│   └── scene2/
+│       └── ...
+├── code/
+│   └── solution.py
+├── requirement.txt
+└── README.md
+```
